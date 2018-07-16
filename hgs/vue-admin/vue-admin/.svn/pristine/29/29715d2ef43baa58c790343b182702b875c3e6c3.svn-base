@@ -1,0 +1,78 @@
+<template>
+  <div class="page">
+    <el-row>
+      <el-col :span="6">
+        <div>
+            <span>关键字：</span>
+            <el-input v-model="input" placeholder="会员名称/手机号" clearable></el-input>
+        </div>
+      </el-col>
+      <el-col :span="6">
+        <div>
+            <span>状态：</span>
+            <el-select v-model="value" placeholder="请选择">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+        </div>
+      </el-col>
+      <el-col :span="6"><div ></div></el-col>
+      <el-col :span="6"><div></div></el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="12"><div></div></el-col>
+      <el-col :span="12"><div></div></el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+// import moduleName from 'module'
+
+export default {
+  name: 'index',
+  components: {
+
+  },
+  data () {
+    return {
+      input: '',
+      value: '',
+      options: [
+        {
+          label: '不限',
+          value: ''
+        },
+        {
+          label: '正常',
+          value: '1'
+        },
+        {
+          label: '注销',
+          value: '2'
+        }
+      ]
+    }
+  },
+  methods: {
+
+  },
+  created () {
+
+  },
+  mounted () {
+
+  },
+  updated () {
+
+  }
+}
+</script>
+
+<style lang="scss" module>
+
+</style>

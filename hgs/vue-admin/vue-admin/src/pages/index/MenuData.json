@@ -1,0 +1,61 @@
+{
+  "menus": [
+    {
+      "funModuleId":"001",
+      "name": "我的面板",
+      "funcUrl": "myPanel",
+      "childFunction": [
+        {
+          "funModuleId":"001001",
+          "name":"我的信息",
+          "funcUrl":"index",
+          "childFunction": [
+            {
+              "funModuleId":"001001001",
+              "name":"后台首页",
+              "funcUrl":"index"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "funModuleId":"002",
+      "name": "商品管理",
+      "funcUrl": "myPanel",
+      "childFunction": [
+        {
+          "funModuleId":"002001",
+          "name":"商品管理",
+          "funcUrl":"product",
+          "childFunction":[
+            {
+              "funModuleId":"002001001",
+              "name":"添加商品",
+              "funcUrl":"index"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "funModuleId":"003",
+      "name": "订单管理",
+      "funcUrl": "order",
+      "childFunction": [
+        {
+          "funModuleId":"003001",
+          "name":"订单管理",
+          "funcUrl":"index",
+          "childFunction":[
+            {
+              "funModuleId":"003001001",
+              "name":"订单列表",
+              "funcUrl":"index"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+<template>
+  <div class="page">
+   <el-form label-width="80px" :model="formLabelAlign">
+      <el-form-item label="名称">
+        <el-input v-model="formLabelAlign.name" v-validate="'required'" name="username" data-vv-as="用户名"></el-input>
+         <span v-show="errors.has('username')" class="help is-danger">{{ errors.first('username') }}</span>
+      </el-form-item>
+      <el-form-item label="活动区域">
+        <el-input v-model="formLabelAlign.region"></el-input>
+      </el-form-item>
+      <el-form-item label="活动形式">
+        <el-input v-model="formLabelAlign.type"></el-input>
+      </el-form-item>
+    </el-form>
+    <Verify @success="alert('success')" @error="alert('error')" :type="3"></Verify>
+  </div>
+</template>
+
+<script>
+import Verify from 'vue2-verify'
+
+export default {
+  name: 'index',
+  components: {
+    Verify
+  },
+  data () {
+    return {
+      formLabelAlign: {
+        name: '',
+        region: '',
+        type: ''
+      }
+    }
+  },
+  methods: {
+    alert(text) {
+      console.log(text)
+    }
+  },
+  created () {
+    let params = {
+      url: 'OR9100071',
+      data: {
+        type: '2'
+      },
+      method: 'post',
+      callback: res => {
+        console.log(res);
+      }
+    }
+    this.$http.sendRequest(params)
+  },
+  mounted () {
+    console.log(this.$route.params);
+  },
+  updated () {
+
+  }
+}
+</script>
+
+<style lang="scss">
+.verify-btn{
+  display: none;
+}
+</style>

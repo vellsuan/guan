@@ -1,0 +1,11 @@
+const customerList = () => import("../pages/customer_manager/customer_list/Index").then(m => m.default);
+
+const cmIndex = [
+  {
+    path: '/cmIndex',
+    name: 'cmIndex',
+    component: customerList
+  }
+]
+
+export default cmIndex;

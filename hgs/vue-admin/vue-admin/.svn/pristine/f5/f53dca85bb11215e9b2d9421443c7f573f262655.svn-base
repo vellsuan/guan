@@ -1,0 +1,103 @@
+<template>
+    <div class="layout-left">
+        <dl v-for="(item,index) in list" :key="item.funModuleId" :data-id="item.funModuleId">
+          <dt @click="showMenu(index)">
+            <em></em>
+            <span>{{item.name}}</span>
+          </dt>
+          <dd v-for="obj in item.childFunction" :class="{show:showIdx===index}" :key="obj.funModuleId">
+            <em></em>
+            <span>
+              <!-- {{obj.name}} -->
+              <router-link :to="{ path: obj.funcUrl}">{{obj.name}}</router-link>
+            </span>
+          </dd>
+        </dl>
+    </div>
+</template>
+
+<script>
+
+import MenuData from "./MenuData";
+
+export default {
+  name: "",
+  components: {
+    MenuData: MenuData
+  },
+  data() {
+    return {
+      showIdx: -1,
+      list: MenuData.menus[0].childFunction
+    };
+  },
+  methods: {
+    showMenu(idx) {
+      // if(this.showIdx === idx) {
+      //   this.$emit("resetShowFlag", -1);
+      // }else{
+      //   this.$emit("resetShowFlag", idx);
+      // }
+      if(this.showIdx == idx) {
+        this.showIdx = -1;
+      }else{
+        this.showIdx = idx;
+      }
+    }
+  },
+  created() {
+    // let params = this.$route.params;
+    // this.list = MenuData.menus[params.idx].childFunction;
+  },
+  mounted() {},
+  updated() {},
+  watch: {
+    '$route' (to, from) {
+      let params = this.$route.params;
+      this.list = MenuData.menus[params.idx].childFunction;
+    }
+  },
+  props: {
+    idx: {
+      type: Number,
+      default: 0
+    }
+    // list: {
+    //   type: Array,
+    //   default: () => {
+    //     return [];
+    //   }
+    // },
+    // showIdx: {
+    //   type: Number,
+    //   default: -1
+    // }
+  }
+};
+</script>
+
+<style lang="scss">
+.layout-left{
+  dt{
+    cursor: pointer;
+    height: 55px;
+    line-height: 55px;
+    text-align: left;
+    padding-left:16px;
+    border-bottom: 1px solid #E8E8EA;
+  }
+  dd{
+    cursor: pointer;
+    display: none;
+    height: 44px;
+    line-height: 44px;
+    text-align: left;
+    padding-left:30px;
+    color: #A5A5A5;
+  }
+  .show{
+    display: block;
+  }
+}
+
+</style>

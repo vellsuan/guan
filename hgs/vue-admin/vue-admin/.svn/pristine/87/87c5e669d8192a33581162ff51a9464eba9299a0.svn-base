@@ -1,0 +1,21 @@
+# 使用说明
+----
+1. 使用md5加密
+```
+import md5 from 'md5'
+
+md5(message)
+```
+1. 使用vee-validate 进行验证
+
+
+
+[API](https://baianat.github.io/vee-validate/)
+```
+import VeeValidate from 'vee-validate'
+Vue.use(VeeValidate);
+
+<input v-validate="'required | phone'" name="myinput" type="text">
+<span>{{ errors.first('myinput') }}</span>
+```
+[demo](https://juejin.im/post/5af166eaf265da0b96722e18)

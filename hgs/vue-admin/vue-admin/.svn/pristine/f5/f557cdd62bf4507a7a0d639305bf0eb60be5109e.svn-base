@@ -1,0 +1,11 @@
+const Index = () => import("../pages/layout/Index").then(m => m.default);
+console.log(Index);
+const layout = [
+  {
+    path: '/',
+    name: 'Layout',
+    component: Index
+  }
+]
+
+export default layout;

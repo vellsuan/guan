@@ -1,0 +1,92 @@
+<template>
+  <div class="order-top-search-bar">
+    <form action="">
+      <ul class="clearfix">
+        <li class="fleft">
+          <i class="el-icon-search"></i>
+        </li>
+        <li class="fleft">
+          <label>关键词：</label>
+          <el-input placeholder="订单号/手机号/门店名称/"></el-input>
+        </li>
+        <li class="fleft">
+          <label>订单状态：</label>
+          <el-select v-model="selectOrderStatue" placeholder="请选择">
+            <el-option
+              v-for="item in orderStatue"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </li>
+        <li class="fleft">
+          <label>下单时间：</label>
+          <el-date-picker
+            v-model="datePickerVal"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期">
+          </el-date-picker>
+        </li>
+        <li class="fleft">
+          <el-button type="primary">搜索</el-button>
+        </li>
+      </ul>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'TopSearchBar',
+  data () {
+    return {
+      orderStatue: [
+        {
+          value: 0,
+          label: '未接单'
+        },
+        {
+          value: 1,
+          label: '已接单'
+        }
+      ],
+      selectOrderStatue: '',
+      datePickerVal: ''
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+  .order-top-search-bar {
+    background-color: #fff;
+    border: 1px solid #E4E4E4;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    > form {
+      > ul {
+        > li {
+          width: 230px;
+          > div {
+            width: calc(100% - 6em);
+          }
+        }
+        > li:first-child {
+          width: 40px;
+          line-height: 40px;
+          font-size: 26px;
+          color: #c1cad6;
+        }
+        > li:nth-last-child(2) {
+          width: 430px;
+        }
+        > li:last-child {
+          width: 100px;
+        }
+      }
+    }
+  }
+</style>
